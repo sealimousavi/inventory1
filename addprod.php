@@ -3,12 +3,13 @@ include_once ('config.php');
 include_once ('header.php'); 
 
 
-if(isset($_POST['paper']))
+if(isset($_POST['amount']))
 {
-    $paper = $_POST['paper'];
+    $type = $_POST['ptype'];
+    $invent = $_POST['inventory'];
     $amount = $_POST['amount'];
-    $sql = "INSERT INTO products (`id`, `paper-type`, `quantity`)
-    VALUES ('', '$paper','$amount')";
+    
+    $sql = "INSERT INTO `test_db`.`manage` (`id`, `p_id`, `i_id`, `quantity`) VALUES (NULL, '$type', '$invent', '$amount')";
 if (mysqli_query($conn, $sql)) {
   echo "با موفقيت اضافه شد";
 } else {
@@ -31,9 +32,6 @@ if (mysqli_query($conn, $sql)) {
           <h1> محصول اضافه شد</h1><br>
           
           
-        <p class="lead">
-             کاغذ<?php echo $paper; ?> به لیست محصولات ها اضافه شد<br>
-        </p>
         <br>
         <br>
       </div>
