@@ -9,15 +9,11 @@ if(isset($_POST['amount']))
     $invent = $_POST['inventory'];
     $amount = $_POST['amount'];
     
-  //  $sql = "UPDATE INTO `test_db`.`manage` (`id`, `p_id`, `i_id`, `quantity`) VALUES (NULL, '$type', '$invent', '$amount')";
+   //  $sql = "UPDATE INTO `test_db`.`manage` (`id`, `p_id`, `i_id`, `quantity`) VALUES (NULL, '$type', '$invent', '$amount')";
 
-   //"UPDATE `manage` SET quantity = quantity -$amount WHERE p_id=$type AND i_id=$invent";
-   $sql =" IF EXISTS()
-  UPDATE `manage` SET quantity = quantity +$amount WHERE p_id=$type AND i_id=$invent
-ELSE
-  INSERT INTO `test_db`.`manage` (`id`, `p_id`, `i_id`, `quantity`) VALUES (NULL, '$type', '$invent', '$amount')";
-
-  if (mysqli_query($conn, $sql)) {
+    $sql = "UPDATE `manage` SET quantity = quantity -$amount WHERE p_id=$type AND i_id=$invent";
+    
+if (mysqli_query($conn, $sql)) {
   echo "با موفقيت اضافه شد";
 } else {
   echo "خطا رخ داد: " . $sql . "<br>" . mysqli_error($conn);
