@@ -9,7 +9,7 @@ if(isset($_POST['amount']))
     $invent = $_POST['inventory'];
     $amount = $_POST['amount'];
     
-   //  $sql = "UPDATE INTO `test_db`.`manage` (`id`, `p_id`, `i_id`, `quantity`) VALUES (NULL, '$type', '$invent', '$amount')";
+   //  $sql = "INSERT INTO `test_db`.`manage` (`id`, `p_id`, `i_id`, `quantity`) VALUES (NULL, '$type', '$invent', '$amount')";
 
     $sql = "UPDATE `manage` SET quantity = quantity -$amount WHERE p_id=$type AND i_id=$invent";
     
