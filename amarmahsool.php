@@ -40,7 +40,7 @@ if(isset($_POST['mahsool']))
                      <?php
                     $sql = "select inventories.city,products.papertype,manage.quantity from products INNER JOIN manage ON manage.p_id=products.p_id INNER JOIN inventories ON manage.i_id=inventories.i_id WHERE products.papertype='$prod'";
                     $result = mysqli_query($conn, $sql);
-
+                    
                     if (mysqli_num_rows($result) > 0) {
                       // output data of each row
                       while($row = mysqli_fetch_assoc($result)) {
@@ -53,6 +53,7 @@ if(isset($_POST['mahsool']))
                     } else {
                       echo "0 results";
                     }
+                    
                      ?>
                 </tbody>
               </table>

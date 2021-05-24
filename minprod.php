@@ -9,7 +9,6 @@ if(isset($_POST['amount']))
     $invent = $_POST['inventory'];
     $amount = $_POST['amount'];
     
-   //  $sql = "INSERT INTO `test_db`.`manage` (`id`, `p_id`, `i_id`, `quantity`) VALUES (NULL, '$type', '$invent', '$amount')";
 
     $sql = "UPDATE `manage` SET quantity = quantity -$amount WHERE p_id=$type AND i_id=$invent";
     
@@ -32,7 +31,7 @@ if (mysqli_query($conn, $sql)) {
 
       <div class="bg-light p-5 rounded mt-3">
 
-          <h1> محصول اضافه شد</h1><br>
+          <h1> محصول کاسته شد</h1><br>
           
           
         <br>
