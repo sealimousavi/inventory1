@@ -4,7 +4,7 @@ include_once ('header.php');
 
 
 
-;
+
 if(isset($_POST['amount']))
 {
     $type = $_POST['ptype'];
@@ -12,13 +12,27 @@ if(isset($_POST['amount']))
     $amount = $_POST['amount'];
     
 
-   $sql="INSERT INTO `test_db`.`manage` (`p_id`, `i_id`, `quantity`) VALUES ('$type', '$invent', '$amount') ON DUPLICATE KEY UPDATE quantity = quantity +$amount";
-
-  if (mysqli_query($conn, $sql)) {
-  echo "با موفقيت اضافه شد";
-} else {
-  echo "خطا رخ داد: " . $sql . "<br>" . mysqli_error($conn);
-}
+   $sql="SELECT `id`, `p_id`, `i_id`, `quantity` FROM `manage` WHERE `p_id`=$type AND`i_id`=$invent";
+   $result = mysqli_query($conn, $sql);
+   if ( mysqli_num_rows($result) > 0)
+    {
+    $sql="UPDATE `manage` SET quantity = quantity +$amount WHERE p_id=$type AND i_id=$invent";
+      if (mysqli_query($conn, $sql)) {
+        echo "با موفقيت اضافه شد";
+      } else {
+        echo "خطا رخ داد: " . $sql . "<br>" . mysqli_error($conn);
+      }
+    }
+  else
+   {
+     $sql="INSERT INTO `test_db`.`manage` (`p_id`, `i_id`, `quantity`) VALUES ('$type', '$invent', '$amount')";
+      if (mysqli_query($conn, $sql)) {
+        echo "با موفقيت اضافه شد";
+      } else {
+        echo "خطا رخ داد: " . $sql . "<br>" . mysqli_error($conn);
+      }
+  
+    }
 }
 
 ?>
