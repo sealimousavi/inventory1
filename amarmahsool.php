@@ -30,8 +30,8 @@ if(isset($_POST['mahsool']))
             <table class="table">
                 <thead>
                   <tr>
+                  <th scope="col">نوع محصول</th>
                     <th scope="col">شهر</th>
-                    <th scope="col">نوع محصول</th>
                     <th scope="col">تعداد </th>
 
                   </tr>
@@ -45,8 +45,8 @@ if(isset($_POST['mahsool']))
                       // output data of each row
                       while($row = mysqli_fetch_assoc($result)) {
                             echo "<tr>";
-                            echo "<td>".$row["city"]."</td>";
                             echo "<td>".$row["papertype"]."</td>";
+                            echo "<td>".$row["city"]."</td>";
                             echo "<td>".$row["quantity"]."</td>";
                             echo "</tr>";
                       }
