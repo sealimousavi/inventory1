@@ -33,7 +33,7 @@ include_once ('header.php');
                           while($row = mysqli_fetch_assoc($result)) {
 
 
-                                echo "<option value=".$row["city"].">".$row["city"]."</option>";
+                                echo "<option value='".$row["city"]."'>".$row["city"]."</option>";
                           }
                         } else {
                           echo "0 results";
@@ -79,7 +79,7 @@ include_once ('header.php');
                           while($row = mysqli_fetch_assoc($result)) {
 
 
-                                echo "<option value=".$row["papertype"].">".$row["papertype"]."</option>";
+                                echo "<option value='".$row["papertype"]."'>".$row["papertype"]."</option>";
                           }
                         } else {
                           echo "0 results";
