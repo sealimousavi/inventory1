@@ -6,8 +6,8 @@ include_once ('header.php'); ?>
 if(isset($_POST['city']))
 {
     $shahr = $_POST['city'];
-    $sql = "INSERT INTO inventories (i_id, city)
-    VALUES ('NULL', '$shahr')";
+    $sql = "INSERT INTO inventories (city)
+    VALUES ('$shahr')";
 if (mysqli_query($conn, $sql)) {
   echo "با موفقيت اضافه شد";
 } else {

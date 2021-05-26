@@ -6,8 +6,8 @@ include_once ('header.php'); ?>
 if(isset($_POST['prod']))
 {
     $mahsool = $_POST['prod'];
-    $sql = "INSERT INTO `products` (p_id, papertype)
-    VALUES (NULL, '$mahsool')";
+    $sql = "INSERT INTO `products` (papertype)
+    VALUES ('$mahsool')";
 
 if (mysqli_query($conn, $sql)) {
   echo "با موفقيت اضافه شد";
